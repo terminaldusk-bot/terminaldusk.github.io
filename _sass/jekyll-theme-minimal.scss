@@ -123,6 +123,9 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 10px;
   img {
   max-height: 100px;
   }
