@@ -123,6 +123,9 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
+  img {
+  max-height: 100px;
+  }
 }
 
 ul.downloads {
