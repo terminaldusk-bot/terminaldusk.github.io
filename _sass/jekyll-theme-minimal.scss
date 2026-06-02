@@ -127,13 +127,9 @@ kbd {
 }
 
 header {
-  width:270px;
-  float:left;
-  position:fixed;
+
   -webkit-font-smoothing:subpixel-antialiased;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 10px;
+ 
   img {
   max-height: 100px;
   }
@@ -204,8 +200,6 @@ strong {
 }
 
 section {
-  width:500px;
-  float:right;
   padding-bottom:50px;
 }
 
@@ -221,10 +215,6 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
-  position:fixed;
-  bottom:50px;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
