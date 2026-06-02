@@ -127,11 +127,11 @@ kbd {
 }
 
 header {
-
+text-align: center;
   -webkit-font-smoothing:subpixel-antialiased;
  
   img {
-  max-height: 100px;
+  max-height: 300px;
   }
   a {
     text-decoration: none;
@@ -200,7 +200,8 @@ strong {
 }
 
 section {
-  padding-bottom:50px;
+  padding:50px 0;
+  text-align:center;
 }
 
 small {
@@ -216,6 +217,7 @@ hr {
 
 footer {
   -webkit-font-smoothing:subpixel-antialiased;
+  text-align:center;
 }
 
 @media print, screen and (max-width: 960px) {
