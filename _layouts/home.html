@@ -39,14 +39,12 @@
         </ul>
         {% endif %}
       </header>
-      <section>
+      <section class="align-center">
 
       {{ content }}
 
       </section>
-      <footer>
-      <p class="copyright">&copy; {{site.time | date: "%Y"}} Terminal Dusk. Terminal Dusk is a wholly-owned brand and registered assumed name of Timestretching Beard LLC. All rights reserved.</p>
-      </footer>
+      {% include footer.html %}
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   </body>

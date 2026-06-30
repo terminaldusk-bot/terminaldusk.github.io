@@ -4,7 +4,7 @@
 body {
   background-color: #000;
   padding:50px;
-  color:#fff;
+  color:#c2c2c2;
   font-family: "Fira Code", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -12,14 +12,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#fff;
   margin:0 0 20px;
-  font-family: "Archivo", serif;
+  font-family: "Nunito Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 600;
   font-style: normal;
+  text-transform: uppercase;
   font-variation-settings:
     "wdth" 100;
+    letter-spacing: .25rem;
 }
 
 p, ul, ol, table, pre, dl {
@@ -31,15 +33,15 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:28px;
+  font-size:3rem;
 }
 
 h2 {
-  color:#393939;
+  color:#c2c2c2;
 }
 
 h3, h4, h5, h6 {
-  color:#494949;
+  color:#676767;
 }
 
 a {
@@ -201,7 +203,9 @@ strong {
 
 section {
   padding:50px 0;
-  text-align:center;
+   &.align-center {
+      text-align: center;
+    }
 }
 
 small {
@@ -218,6 +222,11 @@ hr {
 footer {
   -webkit-font-smoothing:subpixel-antialiased;
   text-align:center;
+  margin-top: 10rem;
+  p {
+    font-size: .8rem;
+    margin-top:2rem;
+  }
 }
 
 @media print, screen and (max-width: 960px) {
@@ -237,6 +246,7 @@ footer {
     padding:20px 0;
     margin:0 0 20px;
   }
+  
 
   header a small {
     display:inline;
