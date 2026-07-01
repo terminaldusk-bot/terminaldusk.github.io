@@ -29,4 +29,4 @@ Please do not send follow-up emails asking whether we have listened to your subm
 
 Thank you for taking the time to share your work. We appreciate your patience and look forward to hearing your music.
 
-[demo@terminal-dusk.com](mailto:demo@terminal-dusk.com)
+[Submit your demo](https://forms.gle/bumyswpuxG2Y7TVVA)
