@@ -1,0 +1,158 @@
+---
+layout: default
+---
+
+<div class="artist-page">
+
+    <div class="artist-content">
+
+        <h1>{{ page.artist }}</h1>
+
+        {% if page.location %}
+        <p>{{ page.location }}</p>
+        {% endif %}
+
+        {% if page.short_bio %}
+        <p>{{ page.short_bio }}</p>
+        {% endif %}
+
+        {% if page.genres %}
+        <p>{{ page.genres | join: ", " }}</p>
+        {% endif %}
+
+    </div>
+ {% if page.img %}
+    <div class="artist-image">
+        <img src="/assets/img/artists/Artist-{{ page.artist | downcase | replace: ' ', '' }}-small.jpg"
+             alt="{{ page.artist }}">
+    </div>
+       {% endif %}
+
+
+
+{% assign artist_slug = page.slug %}
+
+{% comment %}
+----------------------------------------
+Discography
+----------------------------------------
+{% endcomment %}
+
+{% assign discography_count = 0 %}
+
+{% for release in site.releases %}
+    {% if release.artists contains artist_slug %}
+        {% assign discography_count = discography_count | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+{% if discography_count > 0 %}
+
+<section class="artist-discography">
+
+    <h2>Discography</h2>
+
+    <div class="release-grid">
+
+    {% assign releases = site.releases | sort: "cat_num" | reverse %}
+
+    {% for release in releases %}
+
+        {% if release.artists contains artist_slug %}
+            {% include release-card.html release=release %}
+        {% endif %}
+
+    {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% comment %}
+----------------------------------------
+Appears On
+----------------------------------------
+{% endcomment %}
+
+{% assign appearance_count = 0 %}
+
+{% for release in site.releases %}
+
+    {% unless release.artists contains artist_slug %}
+
+        {% assign appears = false %}
+
+        {% for track in release.tracks %}
+
+            {% for artist in track.artists %}
+
+                {% if artist.slug == artist_slug %}
+                    {% assign appears = true %}
+                    {% break %}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if appears %}
+                {% break %}
+            {% endif %}
+
+        {% endfor %}
+
+        {% if appears %}
+            {% assign appearance_count = appearance_count | plus: 1 %}
+        {% endif %}
+
+    {% endunless %}
+
+{% endfor %}
+
+{% if appearance_count > 0 %}
+
+<section class="artist-appearances">
+
+    <h2>Appears On</h2>
+
+    <div class="release-grid">
+
+    {% assign releases = site.releases | sort: "cat_num" | reverse %}
+
+    {% for release in releases %}
+
+        {% unless release.artists contains artist_slug %}
+
+            {% assign appears = false %}
+
+            {% for track in release.tracks %}
+
+                {% for artist in track.artists %}
+
+                    {% if artist.slug == artist_slug %}
+                        {% assign appears = true %}
+                        {% break %}
+                    {% endif %}
+
+                {% endfor %}
+
+                {% if appears %}
+                    {% break %}
+                {% endif %}
+
+            {% endfor %}
+
+            {% if appears %}
+                {% include release-card.html release=release %}
+            {% endif %}
+
+        {% endunless %}
+
+    {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+</div>

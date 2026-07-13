@@ -1,4 +1,13 @@
 theme: jekyll-theme-minimal
 title: Terminal Dusk Records
 logo: /assets/img/logo.png
-description: TD all the way!
+
+
+
+collections:
+  artists:
+    output: true
+    permalink: /artists/:name/
+  releases:
+    output: true
+    permalink: /releases/:name/

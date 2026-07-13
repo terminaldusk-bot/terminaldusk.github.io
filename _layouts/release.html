@@ -1,0 +1,169 @@
+---
+layout: default
+---
+
+<div class="release">
+
+    <div class="release-img">
+        <img src="/assets/img/releases/Release-{{ page.img | downcase | replace: ' ', '' }}.png"
+             alt="{{ page.title }}">
+             {% if page.bandcamp_buy %}
+             <p><a href="{{page.bandcamp_buy}}" class="link-buy-bandcamp">Buy on Bandcamp</a></p>
+              {% endif %}
+    </div>
+
+    <div class="release-content">
+
+        <div class="release-meta">
+
+            <p class="release-artists">
+
+            {% assign artist_count = page.artists | size %}
+
+            {% if artist_count == 0 %}
+
+                Various Artists
+
+            {% elsif artist_count == 2 %}
+
+                {% for slug in page.artists %}
+
+                    {% assign artist = site.artists | where: "slug", slug | first %}
+
+                    {% if artist %}
+                        <!-- <a href="{{ artist.url }}">{{ artist.artist }}</a> -->
+                          {{ artist.artist }}
+                    {% endif %}
+
+                    {% unless forloop.last %}
+                        /
+                    {% endunless %}
+
+                {% endfor %}
+
+            {% elsif artist_count == 1 %}
+
+                {% assign artist = site.artists | where: "slug", page.artists.first | first %}
+
+                {% if artist %}
+                    <!-- <a href="{{ artist.url }}">{{ artist.artist }}</a> -->
+                     {{ artist.artist }}
+                {% endif %}
+
+            {% endif %}
+
+            </p>
+
+            <h1>{{ page.title }}</h1>
+
+            <p class="release-catalog">
+                {{ page.cat }}
+           
+
+            <!-- {% if page.release_type %}
+            <p class="release-type">
+                {{ page.release_type | capitalize }}
+            </p>
+            {% endif %} -->
+
+            {% if page.formats %}
+            <p class="release-formats">
+                {{ page.formats | join: " • " }}
+            </p>
+            {% endif %}
+
+        </div>
+
+        {% if page.bandcamp %}
+        <div class="release-player">
+            <iframe
+                style="border:0;width:100%;height:120px;"
+                src="https://bandcamp.com/EmbeddedPlayer/album={{ page.bandcamp }}/size=large/bgcol=000000/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/"
+                seamless>
+            </iframe>
+        </div>
+        {% endif %}
+
+    {% if page.tracks %}
+
+<section class="tracklisting">
+
+    <h2>Tracklist</h2>
+
+    <ul class="track-list">
+
+    {% assign show_track_artist = false %}
+    {% if page.artists.size > 1 or page.release_type == "compilation" or page.release_type == "remix" %}
+        {% assign show_track_artist = true %}
+    {% endif %}
+
+    {% for track in page.tracks %}
+
+    <li>
+
+        <span class="track-number">
+            {{ track.number }} 
+        </span>
+
+        <span class="track-title">
+
+        {% if show_track_artist %}
+
+            {% for artist in track.artists %}
+
+                {% if artist.slug %}
+
+                    {% assign artist_page = site.artists | where: "slug", artist.slug | first %}
+
+                    {% if artist_page %}
+                        <!-- <a href="{{ artist_page.url }}">{{ artist_page.artist }}</a> -->
+                       {{ artist_page.artist }}
+                    {% else %}
+                        {{ artist.slug }}
+                    {% endif %}
+
+                {% elsif artist.name %}
+
+                    {{ artist.name }}
+
+                {% endif %}
+
+                {% unless forloop.last %}
+                    {{ track.credit | default: "&" }}
+                {% endunless %}
+
+            {% endfor %}
+
+           &mdash;
+
+        {% endif %}
+
+        {{ track.title }}
+
+        </span>
+
+    </li>
+
+    {% endfor %}
+
+    </ul>
+
+     {% if page.date %}
+            <p class="release-date">
+               Released {{ page.date | date: "%B %-d, %Y" }}
+            </p>
+            {% endif %}
+{% endif %}
+    
+</section>
+
+
+
+
+        <div class="release-description">
+            {{ content }}
+        </div>
+
+    </div>
+
+</div>

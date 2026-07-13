@@ -1,5 +1,8 @@
 @import "fonts";
 @import "rouge-github";
+@import "artists";
+@import "releases";
+@import "header";
 
 body {
   background-color: #000;
@@ -18,10 +21,9 @@ h1, h2, h3, h4, h5, h6 {
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  text-transform: uppercase;
   font-variation-settings:
     "wdth" 100;
-    letter-spacing: .25rem;
+    
 }
 
 p, ul, ol, table, pre, dl {
@@ -34,6 +36,8 @@ h1, h2, h3 {
 
 h1 {
   font-size:3rem;
+  text-transform: uppercase;
+  letter-spacing: .25rem;
 }
 
 h2 {
@@ -45,12 +49,12 @@ h3, h4, h5, h6 {
 }
 
 a {
-  color:#267CB9;
+  color:#AB93F6;
   //text-decoration:none;
 }
 
 a:hover, a:focus {
-  color:#069;
+  color:#c3b2f6;
  // font-weight: bold;
 }
 
@@ -66,7 +70,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:860px;
+  width:1200px;
   margin:0 auto;
 }
 
@@ -126,19 +130,6 @@ kbd {
   line-height: 10px;
   padding: 3px 5px;
   vertical-align: middle;
-}
-
-header {
-text-align: center;
-  -webkit-font-smoothing:subpixel-antialiased;
- 
-  img {
-  max-height: 300px;
-  }
-  a {
-    text-decoration: none;
-    color: initial;
-}
 }
 
 ul.downloads {
@@ -236,7 +227,7 @@ footer {
     margin:0;
   }
 
-  header, section, footer {
+  section, footer {
     float:none;
     position:static;
     width:auto;
@@ -245,17 +236,6 @@ footer {
   section {
     padding:20px 0;
     margin:0 0 20px;
-  }
-  
-
-  header a small {
-    display:inline;
-  }
-
-  header ul {
-    position:absolute;
-    right:50px;
-    top:52px;
   }
 }
 
