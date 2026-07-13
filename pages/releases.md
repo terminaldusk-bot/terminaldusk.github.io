@@ -12,7 +12,7 @@ permalink: /releases/
   {% for release in releases %}
   <div class="item-release">
  <a href="{{ release.url }}">
- <img src="/assets/img/releases/Release-{{ release.img | downcase | replace: ' ', '' }}.png">
+ <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png">
   <!-- <p>{{ release.artists }}</p> -->
 
 <p class="release-artist">

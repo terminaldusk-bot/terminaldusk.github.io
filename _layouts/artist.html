@@ -23,7 +23,7 @@ layout: default
     </div>
  {% if page.img %}
     <div class="artist-image">
-        <img src="/assets/img/artists/Artist-{{ page.artist | downcase | replace: ' ', '' }}-small.jpg"
+        <img src="/assets/img/artists/Artist-{{ page.artist | replace: ' ', '' }}-small.jpg"
              alt="{{ page.artist }}">
     </div>
        {% endif %}

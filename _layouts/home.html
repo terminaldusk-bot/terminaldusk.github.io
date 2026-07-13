@@ -40,7 +40,7 @@
   {% for release in releases %}
   <div class="item-release">
  <a href="{{ release.url }}">
- <img src="/assets/img/releases/Release-{{ release.img | downcase | replace: ' ', '' }}.png">
+ <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png">
 
 <p class="release-artist">
 {% assign artist_count = release.artists | size %}

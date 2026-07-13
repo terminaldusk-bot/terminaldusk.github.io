@@ -5,7 +5,7 @@ layout: default
 <div class="release">
 
     <div class="release-img">
-        <img src="/assets/img/releases/Release-{{ page.img | downcase | replace: ' ', '' }}.png"
+        <img src="/assets/img/releases/Release-{{ page.img | replace: ' ', '' }}.png"
              alt="{{ page.title }}">
              {% if page.bandcamp_buy %}
              <p><a href="{{page.bandcamp_buy}}" class="link-buy-bandcamp">Buy on Bandcamp</a></p>
