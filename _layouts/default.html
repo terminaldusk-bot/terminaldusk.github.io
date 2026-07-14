@@ -22,13 +22,13 @@
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
         {% if site.logo %}
           <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
         {% endif %}
         {% include top-nav.html %}
       </header>
+    <div class="wrapper">
       <section>
 
       {{ content }}

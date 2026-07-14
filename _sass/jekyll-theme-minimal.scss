@@ -5,13 +5,17 @@
 @import "header";
 
 body {
-  background-color: #000;
-  padding:50px;
+  background-image: url('/assets/img/cosmic-bg.jpg');
   color:#c2c2c2;
+  padding: 0;
+  margin: 0;
   font-family: "Fira Code", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  background-size: contain;
+    // background-blend-mode: hard-light;
+    background-color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
