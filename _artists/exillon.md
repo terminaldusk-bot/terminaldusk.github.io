@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Exillon
+title: "Exillon"
 slug: exillon
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

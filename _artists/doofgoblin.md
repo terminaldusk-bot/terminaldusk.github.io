@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Doofgoblin
+title: "Doofgoblin"
 slug: doofgoblin
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

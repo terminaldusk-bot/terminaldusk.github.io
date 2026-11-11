@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Shockwave
+title: "Shockwave"
 slug: shockwave
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

@@ -1,17 +1,19 @@
-<div class="item-release">
-
-    <a href="{{ release.url }}">
-
-        <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png">
-
-        <p class="release-title">
-            {{ release.title }}
-        </p>
-
-        <p class="release-cat">
-            {{ release.cat }}
-        </p>
-
-    </a>
-
-</div>
+{% comment %}
+  include.release       release document (cover, title, link)
+  include.format_label  optional override, e.g. "12\" / CD" for grouped releases
+{% endcomment %}
+{% assign rc = include.release %}
+{% assign rc_label = include.format_label | default: rc.format_label %}
+<a class="release-card" href="{{ rc.url | relative_url }}">
+  <img class="release-card__cover"
+       src="{{ "/assets/img/releases/Release-" | append: rc.img | replace: ' ', '' | append: ".png" | relative_url }}"
+       alt="" loading="lazy" width="240" height="240">
+  <span class="release-card__title">{{ rc.title }}</span>
+  <span class="release-card__meta">
+    {%- assign parts = "" -%}
+    {%- if rc.cat -%}{%- assign parts = parts | append: rc.cat | append: "|" -%}{%- endif -%}
+    {%- if rc.date -%}{%- assign rc_year = rc.date | date: "%Y" -%}{%- assign parts = parts | append: rc_year | append: "|" -%}{%- endif -%}
+    {%- if rc_label and rc_label != "" -%}{%- assign parts = parts | append: rc_label | append: "|" -%}{%- endif -%}
+    {{- parts | split: "|" | join: " · " -}}
+  </span>
+</a>

@@ -1,16 +1,291 @@
-.item-artist {
-    img {
-        max-width: 320px;
-    }
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
-}
-.artist-appearances {
-    padding: 0;
+// ---------------------------------------------------------------
+// Shared bits
+// ---------------------------------------------------------------
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 20px;
+
+  span { letter-spacing: .04em; }
 }
 
-.artist-discography {
-    padding: 0;
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s ease, color .15s ease;
+
+  &:hover, &:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .04em;
+  color: var(--body);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+    text-underline-offset: 4px;
+
+    &:hover { color: var(--accent); text-decoration-color: currentColor; }
+  }
+
+  [aria-current] { color: var(--body); }
+}
+
+// ---------------------------------------------------------------
+// Artist page
+// ---------------------------------------------------------------
+
+.artist-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 56px;
+  align-items: flex-start;
+  padding-bottom: 56px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+
+  &__photo {
+    flex: 0 0 320px;
+    max-width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--surface);
+    }
+  }
+
+  &__body {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+
+  &__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -.015em;
+    text-transform: none;
+    color: var(--text);
+    margin: 0 0 20px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    margin-bottom: 28px;
+  }
+
+  &__location {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  &__bio {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--body);
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  // No photo: the name carries the hero, so give it room to breathe.
+  &--no-photo {
+    padding-top: 24px;
+  }
+
+  // Nothing but a name: keep the divider spacing tight.
+  &__body > :last-child { margin-bottom: 0; }
+}
+
+.artist-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Releases / Appears on
+.artist-releases {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+
+  &--inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 48px 64px;
+
+    .card-grid { grid-template-columns: repeat(auto-fill, 240px); }
+  }
+}
+
+.release-section { min-width: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.release-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  &__cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--surface);
+    margin-bottom: 14px;
+    transition: opacity .2s ease;
+  }
+
+  &__title {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  &__meta {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--muted);
+  }
+
+  &:hover, &:focus-visible {
+    .release-card__cover { opacity: .85; }
+    .release-card__title { color: var(--accent); }
+  }
+}
+
+// ---------------------------------------------------------------
+// Artists index
+// ---------------------------------------------------------------
+
+.artist-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+
+    &:hover .artist-index__name { color: var(--accent); }
+  }
+
+  &__name {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text);
+  }
+
+  &__location {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+}
+
+// ---------------------------------------------------------------
+// Mobile
+// ---------------------------------------------------------------
+
+@media (max-width: 720px) {
+  .artist-hero {
+    gap: 28px;
+    padding-bottom: 40px;
+    margin-bottom: 36px;
+
+    &__photo { flex-basis: 100%; }
+    &__body { flex-basis: 100%; }
+    &--no-photo { padding-top: 0; }
+  }
+
+  .artist-releases,
+  .artist-releases--inline {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .card-grid,
+  .artist-releases--inline .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 16px;
+  }
 }

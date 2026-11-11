@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: The Gasman
+title: "The Gasman"
 slug: thegasman
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

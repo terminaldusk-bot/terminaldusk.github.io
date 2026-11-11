@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Atki2
+title: "Atki2"
 slug: atki2
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

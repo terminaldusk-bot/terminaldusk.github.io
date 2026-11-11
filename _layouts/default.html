@@ -15,27 +15,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {% seo %}
+    <link rel="preload" href="{{ "/assets/fonts/nunito-sans-latin-wght-normal.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ "/assets/fonts/fira-code-latin-wght-normal.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
     {% include head-custom.html %}
   </head>
   <body>
-    <header>
-        {% if site.logo %}
-          <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
-        {% endif %}
-        {% include top-nav.html %}
-      </header>
-    <div class="wrapper">
-      <section>
-
+    {% include top-nav.html %}
+    <main class="container site-main">
       {{ content }}
-
-      </section>
-      {% include footer.html %}
-    </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    </main>
+    {% include footer.html %}
   </body>
 </html>

@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Degrade
+title: "Degrade"
 slug: degrade
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

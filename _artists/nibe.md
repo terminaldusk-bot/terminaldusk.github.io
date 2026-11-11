@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Nibe
+title: "Nibe"
 slug: nibe
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

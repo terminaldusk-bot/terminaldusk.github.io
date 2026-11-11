@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Matta
+title: "Matta"
 slug: matta
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Multiplex
+title: "Multiplex"
 slug: multiplex
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

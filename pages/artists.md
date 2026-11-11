@@ -3,17 +3,16 @@ layout: default
 title: Artists
 permalink: /artists/
 ---
-# Artists 
-   
-   
-  {% for artist in site.artists %}
-  <div class="item-artist">
- <a href="{{ artist.url }}">
- <img src="/assets/img/artists/Artist-{{ artist.artist | downcase | replace: ' ', '' }}-small.jpg">
-  <h2>{{ artist.artist }}</h2>
-  <p>{{ artist.location }}</p>
-  <p>{{ artist.genres | join: ", " }}</p>
-  </a>
-  </div>
+# Artists
+
+{% assign artists = site.artists | sort_natural: "artist" %}
+<ul class="artist-index">
+{% for artist in artists %}
+  <li>
+    <a href="{{ artist.url | relative_url }}">
+      <span class="artist-index__name">{{ artist.artist }}</span>
+      {% if artist.location %}<span class="artist-index__location">{{ artist.location }}</span>{% endif %}
+    </a>
+  </li>
 {% endfor %}
-           
+</ul>

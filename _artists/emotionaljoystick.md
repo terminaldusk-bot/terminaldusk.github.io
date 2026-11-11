@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Emotional Joystick
+title: "Emotional Joystick"
 slug: emotionaljoystick
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

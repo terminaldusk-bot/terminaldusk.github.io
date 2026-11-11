@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Ochre
+title: "Ochre"
 slug: ochre
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

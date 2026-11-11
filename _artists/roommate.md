@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Roommate
+title: "Roommate"
 slug: roommate
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

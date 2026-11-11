@@ -1,158 +1,126 @@
 ---
 layout: default
 ---
-
-<div class="artist-page">
-
-    <div class="artist-content">
-
-        <h1>{{ page.artist }}</h1>
-
-        {% if page.location %}
-        <p>{{ page.location }}</p>
-        {% endif %}
-
-        {% if page.short_bio %}
-        <p>{{ page.short_bio }}</p>
-        {% endif %}
-
-        {% if page.genres %}
-        <p>{{ page.genres | join: ", " }}</p>
-        {% endif %}
-
-    </div>
- {% if page.img %}
-    <div class="artist-image">
-        <img src="/assets/img/artists/Artist-{{ page.artist | replace: ' ', '' }}-small.jpg"
-             alt="{{ page.artist }}">
-    </div>
-       {% endif %}
-
-
-
-{% assign artist_slug = page.slug %}
+{% assign slug = page.slug %}
+{% assign sorted = site.releases | sort: "cat_num" | reverse %}
 
 {% comment %}
-----------------------------------------
-Discography
-----------------------------------------
+  Collect the releases this artist is on. Releases sharing a `cat`
+  (e.g. TD001 12" + CD) collapse into one card, so we track:
+    *_cats  "|TD028|TD001|"   one entry per card, newest first
+    *_ids   "|/releases/td001lp|..."  every individual release matched
 {% endcomment %}
+{% assign own_cats = "|" %}{% assign own_ids = "|" %}{% assign own_count = 0 %}
+{% assign app_cats = "|" %}{% assign app_ids = "|" %}{% assign app_count = 0 %}
 
-{% assign discography_count = 0 %}
-
-{% for release in site.releases %}
-    {% if release.artists contains artist_slug %}
-        {% assign discography_count = discography_count | plus: 1 %}
-    {% endif %}
-{% endfor %}
-
-{% if discography_count > 0 %}
-
-<section class="artist-discography">
-
-    <h2>Discography</h2>
-
-    <div class="release-grid">
-
-    {% assign releases = site.releases | sort: "cat_num" | reverse %}
-
-    {% for release in releases %}
-
-        {% if release.artists contains artist_slug %}
-            {% include release-card.html release=release %}
-        {% endif %}
-
-    {% endfor %}
-
-    </div>
-
-</section>
-
-{% endif %}
-
-{% comment %}
-----------------------------------------
-Appears On
-----------------------------------------
-{% endcomment %}
-
-{% assign appearance_count = 0 %}
-
-{% for release in site.releases %}
-
-    {% unless release.artists contains artist_slug %}
-
-        {% assign appears = false %}
-
-        {% for track in release.tracks %}
-
-            {% for artist in track.artists %}
-
-                {% if artist.slug == artist_slug %}
-                    {% assign appears = true %}
-                    {% break %}
-                {% endif %}
-
-            {% endfor %}
-
-            {% if appears %}
-                {% break %}
-            {% endif %}
-
-        {% endfor %}
-
-        {% if appears %}
-            {% assign appearance_count = appearance_count | plus: 1 %}
-        {% endif %}
-
+{% for r in sorted %}
+  {% assign cat_key = "|" | append: r.cat | append: "|" %}
+  {% if r.artists contains slug %}
+    {% assign own_ids = own_ids | append: r.id | append: "|" %}
+    {% unless own_cats contains cat_key %}
+      {% assign own_cats = own_cats | append: r.cat | append: "|" %}
+      {% assign own_count = own_count | plus: 1 %}
     {% endunless %}
-
+  {% else %}
+    {% assign appears = false %}
+    {% for track in r.tracks %}
+      {% for a in track.artists %}
+        {% if a.slug == slug %}{% assign appears = true %}{% break %}{% endif %}
+      {% endfor %}
+      {% if appears %}{% break %}{% endif %}
+    {% endfor %}
+    {% if appears %}
+      {% assign app_ids = app_ids | append: r.id | append: "|" %}
+      {% unless app_cats contains cat_key %}
+        {% assign app_cats = app_cats | append: r.cat | append: "|" %}
+        {% assign app_count = app_count | plus: 1 %}
+      {% endunless %}
+    {% endif %}
+  {% endif %}
 {% endfor %}
 
-{% if appearance_count > 0 %}
+{% assign links = "website:Website,bandcamp:Bandcamp,instagram:Instagram,soundcloud:SoundCloud,youtube:YouTube" | split: "," %}
+{% assign has_links = false %}
+{% for l in links %}
+  {% assign key = l | split: ":" | first %}
+  {% if page[key] and page[key] != "" %}{% assign has_links = true %}{% endif %}
+{% endfor %}
 
-<section class="artist-appearances">
+<article class="artist">
 
-    <h2>Appears On</h2>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ "/artists/" | relative_url }}">Artists</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.artist }}</span>
+  </nav>
 
-    <div class="release-grid">
+  <header class="artist-hero{% unless page.img %} artist-hero--no-photo{% endunless %}">
 
-    {% assign releases = site.releases | sort: "cat_num" | reverse %}
+    {% if page.img %}
+    <div class="artist-hero__photo">
+      <img src="{{ "/assets/img/artists/Artist-" | append: slug | append: "-small.jpg" | relative_url }}"
+           alt="{{ page.artist }}" width="320" height="400">
+    </div>
+    {% endif %}
 
-    {% for release in releases %}
+    <div class="artist-hero__body">
+      <h1 class="artist-hero__name">{{ page.artist }}</h1>
 
-        {% unless release.artists contains artist_slug %}
+      {% if page.location or page.genres %}
+      <div class="artist-hero__meta">
+        {% if page.location %}<span class="artist-hero__location">{{ page.location }}</span>{% endif %}
+        {% if page.genres %}
+        <ul class="tag-list" aria-label="Genres">
+          {% for g in page.genres %}<li class="tag">{{ g }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endif %}
 
-            {% assign appears = false %}
+      {% if page.short_bio %}
+      <p class="artist-hero__bio">{{ page.short_bio }}</p>
+      {% endif %}
 
-            {% for track in release.tracks %}
-
-                {% for artist in track.artists %}
-
-                    {% if artist.slug == artist_slug %}
-                        {% assign appears = true %}
-                        {% break %}
-                    {% endif %}
-
-                {% endfor %}
-
-                {% if appears %}
-                    {% break %}
-                {% endif %}
-
-            {% endfor %}
-
-            {% if appears %}
-                {% include release-card.html release=release %}
-            {% endif %}
-
-        {% endunless %}
-
-    {% endfor %}
-
+      {% if has_links %}
+      <ul class="artist-links">
+        {% for l in links %}
+          {% assign kv = l | split: ":" %}
+          {% assign key = kv[0] %}
+          {% if page[key] and page[key] != "" %}
+          <li><a class="button" href="{{ page[key] }}" rel="noopener">{{ kv[1] }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
 
-</section>
+  </header>
 
-{% endif %}
-</div>
+  {% if own_count > 0 or app_count > 0 %}
+  {% assign inline = false %}
+  {% if own_count > 0 and app_count > 0 and own_count <= 2 and app_count <= 2 %}{% assign inline = true %}{% endif %}
+
+  <div class="artist-releases{% if inline %} artist-releases--inline{% endif %}">
+
+    {% if own_count > 0 %}
+    <section class="release-section" aria-labelledby="releases-heading">
+      <h2 class="section-label" id="releases-heading">Releases <span>({{ own_count }})</span></h2>
+      <ul class="card-grid">
+        {% include release-group-cards.html cats=own_cats ids=own_ids releases=sorted %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if app_count > 0 %}
+    <section class="release-section" aria-labelledby="appears-heading">
+      <h2 class="section-label" id="appears-heading">Appears on <span>({{ app_count }})</span></h2>
+      <ul class="card-grid">
+        {% include release-group-cards.html cats=app_cats ids=app_ids releases=sorted %}
+      </ul>
+    </section>
+    {% endif %}
+
+  </div>
+  {% endif %}
+
+</article>

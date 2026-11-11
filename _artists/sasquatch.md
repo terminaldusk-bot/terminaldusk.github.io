@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Sasquatch
+title: "Sasquatch"
 slug: sasquatch
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

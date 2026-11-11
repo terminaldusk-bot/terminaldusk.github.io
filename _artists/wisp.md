@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Wisp
+title: "Wisp"
 slug: wisp
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

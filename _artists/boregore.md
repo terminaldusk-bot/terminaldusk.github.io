@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Borgore
+title: "Borgore"
 slug: borgore
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

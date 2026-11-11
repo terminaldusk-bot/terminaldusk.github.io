@@ -7,6 +7,7 @@ date: 2005-02-08
 
 release_type: compilation
 format: cd
+format_label: 'CD'
 
 artists:
   # - doormouse

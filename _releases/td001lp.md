@@ -6,6 +6,7 @@ cat_num: 1
 date: 2005-02-08
 release_type: compilation
 format: vinyl
+format_label: '12"'
 artists: 
     # - line47
     # - shitmat
