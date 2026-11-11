@@ -1,10 +1,26 @@
-a.link-buy-bandcamp {
-  color: #d9dc6c;
-  text-decoration: underline !important;
-   text-underline-offset: 5px;
-  &:hover {
-      color: #c2c900;
+// "Buy on Bandcamp" uses the shared .button style (see artists.scss).
+// These rules undo the card/link styles it would otherwise inherit.
+.release-buy {
+  margin: 16px 0 0;
+
+  .button {
+    display: inline-flex;
+    flex-direction: row;
+    height: auto;
+    min-height: 44px;
+    text-decoration: none;
+
+    &:hover, &:focus-visible { opacity: 1; }
   }
+}
+
+.release .release-buy { margin: 4px 0 28px; }
+
+// In release grids the button spans the card, lined up under the cover.
+.release-grid .item-release .release-buy .button {
+  display: flex;
+  justify-content: center;
+  height: auto;
 }
 
 .release {
@@ -222,4 +238,18 @@ $breakpoint-mobile: 720px;
       font-family: var(--font-mono);
     }
   }
+}
+// Releases page: secondary catalogue (Terminal Dusk Digital, TDD001-TDD009)
+.catalog-section {
+  margin-top: 96px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.catalog-heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: var(--text);
+  margin: 0;
 }

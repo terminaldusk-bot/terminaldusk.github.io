@@ -28,6 +28,7 @@ artists:
   # - pale
 
 img: TD001cd
+bandcamp: 1757399752
 purchase:
 
 tracks:

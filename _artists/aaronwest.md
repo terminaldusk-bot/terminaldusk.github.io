@@ -4,10 +4,9 @@ artist: Aaron West
 title: "Aaron West"
 slug: aaronwest
 img: yes
-location: 
-
+location: Louisville, Kentucky, USA
 website: 
-bandcamp:
+bandcamp: https://aaronwest.bandcamp.com
 instagram:
 soundcloud:
 youtube:

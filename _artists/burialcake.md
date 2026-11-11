@@ -3,11 +3,10 @@ layout: artist
 artist: Burial Cake
 title: "Burial Cake"
 slug: burialcake
-img: 
-location: 
-
+img: yes
+location: Seattle, Washington, USA
 website: 
-bandcamp:
+bandcamp: https://burialcake.bandcamp.com
 instagram:
 soundcloud:
 youtube:

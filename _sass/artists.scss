@@ -33,6 +33,20 @@
     border-color: var(--accent);
     color: var(--accent);
   }
+
+  // Solid variant for the main action on a page (e.g. Buy on Bandcamp).
+  &--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+
+    &:hover, &:focus-visible {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      color: var(--bg);
+    }
+  }
 }
 
 .tag-list {
@@ -239,26 +253,45 @@
   padding: 0;
 
   a {
-    display: block;
-    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
     border-bottom: 1px solid var(--border);
     text-decoration: none;
 
     &:hover .artist-index__name { color: var(--accent); }
+    &:hover .artist-index__thumb { opacity: .85; }
   }
 
+  &__thumb {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 60px;
+    object-fit: cover;
+    background: var(--surface);
+    transition: opacity .2s ease;
+  }
+
+  &__thumb--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+
+    img {
+      width: 40px;
+      height: 40px;
+      opacity: .6;
+    }
+  }
+
+  a:hover .artist-index__thumb--empty img { opacity: .8; }
+
   &__name {
-    display: block;
     font-weight: 600;
     font-size: 18px;
     color: var(--text);
-  }
-
-  &__location {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--muted);
   }
 }
 

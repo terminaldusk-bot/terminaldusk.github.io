@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign slug = page.slug %}
-{% assign sorted = site.releases | sort: "cat_num" | reverse %}
+{% assign sorted = site.releases | sort: "date" | reverse %}
 
 {% comment %}
   Collect the releases this artist is on. Releases sharing a `cat`
@@ -87,7 +87,9 @@ layout: default
           {% assign kv = l | split: ":" %}
           {% assign key = kv[0] %}
           {% if page[key] and page[key] != "" %}
-          <li><a class="button" href="{{ page[key] }}" rel="noopener">{{ kv[1] }}</a></li>
+          {% assign link_label = kv[1] %}
+          {% if key == "website" and page[key] contains "discogs.com" %}{% assign link_label = "Discogs" %}{% endif %}
+          <li><a class="button" href="{{ page[key] }}" rel="noopener">{{ link_label }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>

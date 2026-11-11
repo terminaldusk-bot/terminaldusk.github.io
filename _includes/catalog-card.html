@@ -1,0 +1,26 @@
+{% comment %}
+  One card on the Releases page. include.release = release document.
+{% endcomment %}
+{% assign release = include.release %}
+<div class="item-release">
+  <a href="{{ release.url }}">
+    <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png" alt="">
+
+    <p class="release-artist">
+    {% assign artist_count = release.artists | size %}
+    {% if artist_count == 0 %}
+      Various Artists
+    {% elsif artist_count == 2 %}
+      {% assign artist_one = site.artists | where: "slug", release.artists[0] | first %}
+      {% assign artist_two = site.artists | where: "slug", release.artists[1] | first %}
+      {{ artist_one.artist }} / {{ artist_two.artist }}
+    {% elsif artist_count == 1 %}
+      {% assign artist = site.artists | where: "slug", release.artists[0] | first %}
+      {{ artist.artist }}
+    {% endif %}
+    </p>
+
+    <h2 class="release-title">{{ release.title }}</h2>
+    <p class="release-cat">{{ release.cat }}</p>
+  </a>
+</div>

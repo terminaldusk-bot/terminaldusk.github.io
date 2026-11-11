@@ -8,7 +8,7 @@ layout: default
 
 <div class="release-grid">
 
-{% assign releases = site.releases | where_exp: "r", "r.bandcamp_buy" | sort: "cat_num" | reverse %}
+{% assign releases = site.releases | where_exp: "r", "r.bandcamp_buy" | where_exp: "r", "r.series != 'digital'" | sort: "cat_num" | reverse %}
 
   {% for release in releases %}
   <div class="item-release">
@@ -45,7 +45,7 @@ layout: default
   <p class="release-cat">{{ release.cat }}</p>
 
   </a>
-  <p><a href="{{ release.bandcamp_buy }}" class="link-buy-bandcamp">Buy on Bandcamp</a></p>
+  <p class="release-buy"><a href="{{ release.bandcamp_buy }}" class="button button--primary" rel="noopener">Buy on Bandcamp</a></p>
   </div>
 {% endfor %}
 

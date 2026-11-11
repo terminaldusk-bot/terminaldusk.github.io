@@ -17,7 +17,8 @@
   {% for r in group %}
     {% assign id_key = "|" | append: r.id | append: "|" %}
     {% unless include.ids contains id_key %}{% continue %}{% endunless %}
-    {% assign lbl = r.format_label | default: r.format | upcase %}
+    {% assign lbl = r.format_label %}
+    {% unless lbl %}{% assign lbl = r.format | upcase %}{% endunless %}
     {% if r.format == "vinyl" %}
       {% unless primary and primary.format == "vinyl" %}{% assign primary = r %}{% endunless %}
       {% assign vinyl_labels = vinyl_labels | append: lbl | append: "|" %}

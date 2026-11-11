@@ -6,9 +6,6 @@ layout: default
 
     <div class="release-img">
         <img src="/assets/img/releases/Release-{{ page.img | replace: ' ', '' }}.png" alt="{{ page.title }}">
-        {% if page.bandcamp_buy %}
-        <p><a href="{{page.bandcamp_buy}}" class="link-buy-bandcamp">Buy on Bandcamp</a></p>
-        {% endif %}
     </div>
 
     <div class="release-content">
@@ -57,6 +54,11 @@ layout: default
 
             <p class="release-catalog">
                 {{ page.cat }}
+            </p>
+
+            {% if page.bandcamp_buy and page.series != "digital" %}
+            <p class="release-buy"><a href="{{ page.bandcamp_buy }}" class="button button--primary" rel="noopener">Buy on Bandcamp</a></p>
+            {% endif %}
 
 
                 <!-- {% if page.release_type %}
