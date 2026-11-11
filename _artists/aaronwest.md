@@ -2,7 +2,7 @@
 layout: artist
 artist: Aaron West
 slug: aaronwest
-img: 
+img: yes
 location: 
 
 URL: 
