@@ -2,7 +2,7 @@
 layout: artist
 artist: Rusuden
 slug: rusuden
-img: Artist-rusuden-small.jpg
+img: yes
 location: Pennsylvania, USA
 genres: 
      - IDM
