@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Bare
+title: "Bare"
 slug: bare
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

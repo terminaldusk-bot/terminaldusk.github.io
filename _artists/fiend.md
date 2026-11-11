@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Fiend
+title: "Fiend"
 slug: fiend
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

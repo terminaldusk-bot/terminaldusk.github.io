@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Dubtek
+title: "Dubtek"
 slug: dubtek
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

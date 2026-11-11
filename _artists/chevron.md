@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Chevron
+title: "Chevron"
 slug: chevron
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

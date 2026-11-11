@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Doormouse
+title: "Doormouse"
 slug: doormouse
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

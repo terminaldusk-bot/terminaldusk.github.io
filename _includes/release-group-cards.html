@@ -1,0 +1,33 @@
+{% comment %}
+  Renders one release card per catalogue number.
+  include.cats      "|TD028|TD001|"  catalogue numbers, in display order
+  include.ids       "|/releases/td001lp|..."  releases to include
+  include.releases  the pool of release documents
+
+  When several releases share a `cat`, the vinyl edition supplies the cover
+  and link, and the format labels are joined vinyl-first ("12\" / CD").
+{% endcomment %}
+{% assign cat_list = include.cats | split: "|" %}
+{% for cat in cat_list %}
+  {% if cat == "" %}{% continue %}{% endif %}
+  {% assign group = include.releases | where: "cat", cat %}
+  {% assign primary = nil %}
+  {% assign vinyl_labels = "" %}
+  {% assign other_labels = "" %}
+  {% for r in group %}
+    {% assign id_key = "|" | append: r.id | append: "|" %}
+    {% unless include.ids contains id_key %}{% continue %}{% endunless %}
+    {% assign lbl = r.format_label | default: r.format | upcase %}
+    {% if r.format == "vinyl" %}
+      {% unless primary and primary.format == "vinyl" %}{% assign primary = r %}{% endunless %}
+      {% assign vinyl_labels = vinyl_labels | append: lbl | append: "|" %}
+    {% else %}
+      {% unless primary %}{% assign primary = r %}{% endunless %}
+      {% assign other_labels = other_labels | append: lbl | append: "|" %}
+    {% endif %}
+  {% endfor %}
+  {% if primary %}
+    {% assign group_label = vinyl_labels | append: other_labels | split: "|" | uniq | join: " / " %}
+    <li>{% include release-card.html release=primary format_label=group_label %}</li>
+  {% endif %}
+{% endfor %}

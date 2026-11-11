@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Pale
+title: "Pale"
 slug: pale
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

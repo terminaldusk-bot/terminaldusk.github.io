@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Sarantis
+title: "Sarantis"
 slug: sarantis
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

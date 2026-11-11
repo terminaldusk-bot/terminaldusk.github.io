@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Killa Cosby
+title: "Killa Cosby"
 slug: killacosby
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

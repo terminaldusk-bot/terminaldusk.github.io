@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Fault
+title: "Fault"
 slug: fault
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

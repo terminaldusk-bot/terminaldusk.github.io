@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Manasyt
+title: "Manasyt"
 slug: manasyt
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

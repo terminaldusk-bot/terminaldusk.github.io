@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Not breathing
+title: "Not breathing"
 slug: notbreathing
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

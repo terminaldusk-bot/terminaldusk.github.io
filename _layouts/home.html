@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GXJ1G0DNX8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+---
+layout: default
+---
 
-  gtag('config', 'G-GXJ1G0DNX8');
-</script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    {% include head-custom.html %}
-  </head>
-  <body>
-    <header>
-        {% if site.logo %}
-          <a href="{{ "/" | absolute_url }}"><img src="{{site.logo | relative_url}}" alt="Logo" /></a>
-        {% endif %}
-        {% include top-nav.html %}
-      </header>
-    <div class="wrapper">
-      <section class="align-center">
-
-      {{ content }}
+<div class="home-intro">
+{{ content }}
+</div>
 
 <div class="release-grid">
 
@@ -40,7 +13,7 @@
   {% for release in releases %}
   <div class="item-release">
  <a href="{{ release.url }}">
- <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png">
+ <img src="/assets/img/releases/Release-{{ release.img | replace: ' ', '' }}.png" alt="">
 
 <p class="release-artist">
 {% assign artist_count = release.artists | size %}
@@ -68,7 +41,7 @@
 {% endif %}
 </p>
 
-  <h2 class="release-title">{{ release.title }}</h2>  
+  <h2 class="release-title">{{ release.title }}</h2>
   <p class="release-cat">{{ release.cat }}</p>
 
   </a>
@@ -77,11 +50,3 @@
 {% endfor %}
 
 </div>
-
-
-      </section>
-      {% include footer.html %}
-    </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-  </body>
-</html>

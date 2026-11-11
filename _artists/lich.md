@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Lich
+title: "Lich"
 slug: lich
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

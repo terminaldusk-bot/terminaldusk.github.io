@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Vesicle
+title: "Vesicle"
 slug: vesicle
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

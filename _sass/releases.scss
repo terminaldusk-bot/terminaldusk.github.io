@@ -11,9 +11,8 @@ a.link-buy-bandcamp {
   display: grid;
   grid-template-columns: minmax(300px, 45%) 1fr;
   gap: 4rem;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 0;
   align-items: start;
 
   .release-img {
@@ -41,7 +40,7 @@ a.link-buy-bandcamp {
   .release-date {
     font-weight: 400;
     font-size: 1rem;
-    color: #777;
+    color: var(--muted);
     margin: 0;
     
   }
@@ -59,7 +58,7 @@ a.link-buy-bandcamp {
     letter-spacing: normal;
     }
     .release-catalog {
-       color: #777;
+       color: var(--muted);
           
     }
 
@@ -71,9 +70,9 @@ a.link-buy-bandcamp {
   line-height: normal;
   margin: 0 0 .4rem;
   text-transform: uppercase;
-  font-family: "Fira Code", serif;
+  font-family: var(--font-mono);
       letter-spacing: .2rem;
-    color: #777;
+    color: var(--muted);
 
 }
 
@@ -93,23 +92,23 @@ a.link-buy-bandcamp {
 .tracklisting {
   padding: 2rem 0;
   margin: 2rem 0;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   h2 {
-    color: #777;
+    color: var(--muted);
     font-weight: 400;
     letter-spacing: .2rem;
     font-size: 1rem;
     text-transform: uppercase;
-    font-family: "Fira Code", serif;
+    font-family: var(--font-mono);
   }
   .track-number {
-    color: #777;
+    color: var(--muted);
     margin-right: 1rem;
     font-size: 1rem;
   }
   .track-title {
-     font-family: "Nunito Sans", sans-serif;
+     font-family: var(--font-body);
      font-size: 1.2rem;
   }
 }
@@ -129,7 +128,7 @@ a.link-buy-bandcamp {
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem 1rem;
+    padding: 0;
 
     .release-img {
       grid-column: 1;
@@ -153,9 +152,8 @@ $breakpoint-mobile: 720px;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   align-items: stretch;
-  max-width: 1400px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+  margin: 4rem 0;
+  padding: 0;
    text-align: left;
 
   @media (max-width: $breakpoint-tablet) {
@@ -168,8 +166,7 @@ $breakpoint-mobile: 720px;
   @media (max-width: $breakpoint-mobile) {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 1.25rem;
-    margin: 2.5rem auto;
+    margin: 2.5rem 0;
     text-align: center;
   }
 
@@ -206,8 +203,8 @@ $breakpoint-mobile: 720px;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: .05em;
-      font-family: "Fira Code", monospace;
-      color: #AB93F6;
+      font-family: var(--font-mono);
+      color: var(--accent);
     }
 
     .release-title {
@@ -221,8 +218,8 @@ $breakpoint-mobile: 720px;
     .release-cat {
       font-size: .9rem;
       text-transform: uppercase;
-      color: #777;
-      font-family: "Fira Code", monospace;
+      color: var(--muted);
+      font-family: var(--font-mono);
     }
   }
 }

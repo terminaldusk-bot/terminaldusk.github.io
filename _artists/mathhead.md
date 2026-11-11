@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Mathhead
+title: "Mathhead"
 slug: mathhead
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

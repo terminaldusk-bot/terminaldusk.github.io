@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: Dstro
+title: "Dstro"
 slug: dstro
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

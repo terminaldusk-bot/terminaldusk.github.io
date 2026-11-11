@@ -1,10 +1,15 @@
 ---
 layout: artist
 artist: The Bassist
+title: "The Bassist"
 slug: thebassist
 img: 
 location: 
 
-URL: 
+website: 
+bandcamp:
+instagram:
+soundcloud:
+youtube:
 short_bio: 
 ---

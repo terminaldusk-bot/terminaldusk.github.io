@@ -1,4 +1,39 @@
- <ul>
-          <!-- <li><a href="/artists/">Artists</a></li> -->
-            <li><a href="/releases/">Releases</a></li>
-        </ul>
+{% assign nav_path = page.url | default: "/" %}
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="{{ "/" | relative_url }}">
+      <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" width="56" height="56">
+    </a>
+
+    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+      Menu
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        {% assign nav_items = "Releases|/releases/,Artists|/artists/,Contact|/contact/" | split: "," %}
+        {% for item in nav_items %}
+          {% assign parts = item | split: "|" %}
+          {% assign href = parts[1] %}
+          {% assign active = false %}
+          {% if nav_path == href or nav_path contains href %}{% assign active = true %}{% endif %}
+          <li><a href="{{ href | relative_url }}"{% if active %} class="is-active" aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.querySelector('.site-nav__toggle');
+    var header = document.querySelector('.site-header');
+    if (!btn || !header) return;
+    btn.hidden = false;
+    header.classList.add('has-js');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      header.classList.toggle('is-open', !open);
+    });
+  })();
+</script>
