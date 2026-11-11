@@ -16,7 +16,7 @@ artists:
     # - chevron
 img: TD001LP
 purchase: 
-bandcamp: 
+bandcamp: 1757399752
 
 tracks:
   - number: A1
