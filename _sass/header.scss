@@ -84,9 +84,16 @@
     padding-bottom: 8px;
   }
 
-  .site-header__logo img {
-    width: 44px;
-    height: 44px;
+  // Same 256px logo as desktop; only shrinks if the screen is too narrow
+  // to fit it beside the Menu button.
+  .site-header__logo {
+    // Leave room for the 24px gap + ~72px Menu button.
+    max-width: calc(100% - 96px);
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   .site-nav {
