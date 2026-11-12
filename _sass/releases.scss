@@ -255,9 +255,21 @@ $breakpoint-mobile: 720px;
   margin: 0;
 }
 
-// Phone card sizing. Kept after the base .release-grid rules so it wins.
+// Phone cards: each release sits in its own box so the button clearly
+// belongs to it. Kept after the base .release-grid rules so it wins.
 @media (max-width: $breakpoint-mobile) {
+  .release-grid {
+    gap: 16px 12px;
+  }
+
   .release-grid .item-release {
+    padding: 10px 10px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    > a { height: auto; }
+
     img { margin-bottom: 10px; }
 
     .release-artist {
@@ -276,11 +288,25 @@ $breakpoint-mobile: 720px;
       margin: 0;
     }
 
-    .release-buy { margin-top: 10px; }
+    // Pinned to the card's bottom so buttons line up across a row.
+    .release-buy {
+      margin: auto 0 0;
+      padding-top: 12px;
+    }
 
+    // Outline style: lighter than solid purple, so the covers lead.
     .release-buy .button {
+      min-height: 40px;
       padding-left: 8px;
       padding-right: 8px;
+      background: transparent;
+      border-color: var(--accent);
+      color: var(--accent);
+
+      &:hover, &:focus-visible {
+        background: var(--accent);
+        color: var(--bg);
+      }
     }
 
     .release-buy__prefix { display: none; }
