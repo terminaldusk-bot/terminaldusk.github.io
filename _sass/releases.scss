@@ -179,11 +179,12 @@ $breakpoint-mobile: 720px;
     
   }
 
+  // Two columns on phones so several releases fit on one screen.
   @media (max-width: $breakpoint-mobile) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin: 2.5rem 0;
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 16px;
+    margin: 1.5rem 0;
+    text-align: left;
   }
 
   .item-release {
@@ -252,4 +253,36 @@ $breakpoint-mobile: 720px;
   letter-spacing: .2rem;
   color: var(--text);
   margin: 0;
+}
+
+// Phone card sizing. Kept after the base .release-grid rules so it wins.
+@media (max-width: $breakpoint-mobile) {
+  .release-grid .item-release {
+    img { margin-bottom: 10px; }
+
+    .release-artist {
+      font-size: .75rem;
+      letter-spacing: .04em;
+      margin: 0 0 2px;
+    }
+
+    .release-title {
+      font-size: .9rem;
+      margin: 0 0 2px;
+    }
+
+    .release-cat {
+      font-size: .75rem;
+      margin: 0;
+    }
+
+    .release-buy { margin-top: 10px; }
+
+    .release-buy .button {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .release-buy__prefix { display: none; }
+  }
 }
